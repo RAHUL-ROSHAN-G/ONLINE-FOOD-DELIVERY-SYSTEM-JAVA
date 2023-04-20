@@ -3,7 +3,7 @@ An Online Food Delivery System in Java using MVC architecture pattern and OO con
 
 ## SYNOPSIS AND DESCRIPTION
 
-A simple Library management Project in java using basic programming constructs.
+A simple online food delivery system Project in java using basic programming constructs.
 
 This is the project on “An Online Food Delivery System” , where it includes the same features of Swiggy / Zomato client app. This app is built using ```Java Swing``` , a popular Java GUI framework in collaboration with ```Apache Netbeans``` to provide the suitable environment to work with Java files, GUI and XML files. In this project XML files are used as the database for the project, where all the food , restaurant and customer details are stored and retrieved. Also, takes into consideration of insertion of customer details too. 
 
