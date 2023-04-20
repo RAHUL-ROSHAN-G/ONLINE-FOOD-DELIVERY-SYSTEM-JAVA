@@ -36,7 +36,7 @@ public class FoodItemJDialog extends javax.swing.JDialog {
         food_jTextArea.setFont(new java.awt.Font("Tahoma", 3, 14)); 
         food_jTextArea.setForeground(new java.awt.Color(255, 255, 255));
         food_jTextArea.setRows(5);
-        food_jTextArea.setText("A hamburger (\nalso called a hamburger sandwich, \nburger or hamburg) is a sandwich consisti\nng of one or more cooked patties of ground mea\nt (beef, pork, turkey, chicken, etc.) usually placed i\nnside a sliced hamburger bun. Hamburgers are o\nften served with lettuce, bacon, tomato, onion,\n pickles, cheese and condiments such as mustard, \nmayonnaise, ketchup and relish.[1]");
+        food_jTextArea.setText("xyz");
         food_jTextArea.setLineWrap(true);
         food_jTextArea.setWrapStyleWord(true);
         foodDescrip_jScrollPane.setViewportView(food_jTextArea);
