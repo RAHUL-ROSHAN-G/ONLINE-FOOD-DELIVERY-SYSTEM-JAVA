@@ -1,5 +1,12 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Properties;
+import java.io.InputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -57,11 +64,38 @@ MainWindow.foodPrice6_jTextField.setText(" ₹"+eElement[5].getElementsByTagName
 
  public void readData(String cata) {
   try {
-	File fXmlFile = new File("src/XMLfiles/foodCategory.xml");
-	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+    // Properties props = new Properties();
+    // InputStream input = new FileInputStream("src/env/env.properties");
+    // props.load(input);
+    
+    // String xmlDirectory = props.getProperty("XML_DIRECTORY");
+    
+	// File fXmlFile = new File("src/XMLfiles/foodCategory.xml");
+	// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+  //       dbFactory.setValidating(true);
+	// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	// Document doc = dBuilder.parse(fXmlFile);
+
+  String xmlDirectoryPath = System.getenv("XML_DIRECTORY");
+  // String xmlDirectoryPath = "";
+  
+  
+
+    String fXmlFile = xmlDirectoryPath + File.separator + "foodCategory.xml";
+    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         dbFactory.setValidating(true);
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
+  
+  
+  // File fXmlFile = new File(xmlDirectory, "foodCategory.xml");
+  // DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+  // dbFactory.setValidating(true);
+  // DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+  // Document doc = dBuilder.parse(fXmlFile);
+
+  // process the XML document as needed
+
       
 	doc.getDocumentElement().normalize();
       if(cata.equals("Specials") ){
@@ -144,16 +178,37 @@ MainWindow.foodPrice6_jTextField.setText(" ₹"+eElement[5].getElementsByTagName
   
      catch (Exception e) {
 	e.printStackTrace();
+
     }
   }
 public boolean checkCustomerData(String target, String targetword){
     boolean t=false;
     try { 
-	File fXmlFile = new File("src/XMLfiles/customersRoll.xml");
-	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	// File fXmlFile = new File("src/XMLfiles/customersRoll.xml");
+	// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+  //       dbFactory.setValidating(true);
+	// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	// Document doc = dBuilder.parse(fXmlFile);
+
+  // Properties props = new Properties();
+  // InputStream input = new FileInputStream("src/env/env.properties");
+  // props.load(input);
+  
+  // String xmlDirectory = props.getProperty("XML_DIRECTORY");
+  
+// File fXmlFile = new File("src/XMLfiles/foodCategory.xml");
+// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+//       dbFactory.setValidating(true);
+// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+// Document doc = dBuilder.parse(fXmlFile);
+
+String xmlDirectoryPath = System.getenv("XML_DIRECTORY");
+    String fXmlFile = xmlDirectoryPath + File.separator + "customersRoll.xml";
+    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         dbFactory.setValidating(true);
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
+
 	doc.getDocumentElement().normalize();
      NodeList nlist = doc.getElementsByTagName("customer");  
      for(int i=0;i<nlist.getLength();i++){
@@ -195,11 +250,31 @@ public boolean checkCustomerData(String target, String targetword){
 
 public void writeCustomerData(String mode ){
         try { 
-	File fXmlFile = new File("src/XMLfiles/customersRoll.xml");
-	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	// File fXmlFile = new File("src/XMLfiles/customersRoll.xml");
+	// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+  //       dbFactory.setValidating(true);
+	// Document doc = dBuilder.parse(fXmlFile);
+
+  // Properties props = new Properties();
+  // InputStream input = new FileInputStream("src/env/env.properties");
+  // props.load(input);
+  
+  // String xmlDirectory = props.getProperty("XML_DIRECTORY");
+  
+// File fXmlFile = new File("src/XMLfiles/foodCategory.xml");
+// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+//       dbFactory.setValidating(true);
+// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+// Document doc = dBuilder.parse(fXmlFile);
+
+String xmlDirectoryPath = System.getenv("XML_DIRECTORY");
+    String fXmlFile = xmlDirectoryPath + File.separator + "customersRoll.xml";
+    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         dbFactory.setValidating(true);
+	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
+
 	doc.getDocumentElement().normalize();
         
         if(mode.equals("write")){   
@@ -262,7 +337,8 @@ public void writeCustomerData(String mode ){
               DOMSource source = new DOMSource(doc);
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
-        StreamResult result = new StreamResult("src/XMLfiles/customersRoll.xml");
+
+        StreamResult result = new StreamResult(fXmlFile);
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
         transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "customerslist.dtd");
@@ -282,11 +358,32 @@ public void writeCustomerData(String mode ){
 
 public void changeLastOrder( ){
         try { 
-	File fXmlFile = new File("src/XMLfiles/customersRoll.xml");
-	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+
+	// File fXmlFile = new File("src/XMLfiles/customersRoll.xml");
+	// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+  //       dbFactory.setValidating(true);
+	// Document doc = dBuilder.parse(fXmlFile);
+
+  // Properties props = new Properties();
+  // InputStream input = new FileInputStream("src/env/env.properties");
+  // props.load(input);
+  
+  // String xmlDirectory = props.getProperty("XML_DIRECTORY");
+  
+// File fXmlFile = new File("src/XMLfiles/foodCategory.xml");
+// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+//       dbFactory.setValidating(true);
+// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+// Document doc = dBuilder.parse(fXmlFile);
+
+String xmlDirectoryPath = System.getenv("XML_DIRECTORY");
+    String fXmlFile = xmlDirectoryPath + File.separator + "customersRoll.xml";
+    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         dbFactory.setValidating(true);
+	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
+
 	doc.getDocumentElement().normalize();
         NodeList nlist = doc.getElementsByTagName("customer");  
      for(int i=0;i<nlist.getLength();i++){
@@ -301,7 +398,7 @@ public void changeLastOrder( ){
         DOMSource source = new DOMSource(doc);
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
-        StreamResult result = new StreamResult("src/XMLfiles/customersRoll.xml");
+        StreamResult result = new StreamResult(fXmlFile);
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
         transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
         transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "customerslist.dtd");
@@ -315,8 +412,19 @@ public void changeLastOrder( ){
 
 public void readDataByID(String id){
     try {
-	File fXmlFile = new File("src/XMLfiles/foodCategory.xml");
-	DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+	// File fXmlFile = new File("src/XMLfiles/foodCategory.xml");
+	// DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+  //       dbFactory.setValidating(true);
+	// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	// Document doc = dBuilder.parse(fXmlFile);
+
+  // Properties props = new Properties();
+  // InputStream input = new FileInputStream("src/env/env.properties");
+  // props.load(input);
+  
+  String xmlDirectoryPath = System.getenv("XML_DIRECTORY");
+    String fXmlFile = xmlDirectoryPath + File.separator + "foodCategory.xml";
+    DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         dbFactory.setValidating(true);
 	DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 	Document doc = dBuilder.parse(fXmlFile);
@@ -332,6 +440,3 @@ public void readDataByID(String id){
 }
 
 }
-
-
-  
