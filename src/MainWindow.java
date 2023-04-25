@@ -636,6 +636,14 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
      
+        String xmlDirectoryPath = System.getenv("XML_DIRECTORY");
+        if(xmlDirectoryPath == null)
+        {
+            System.out.println("pls provide valid path and set the environment variable as XML_DIRECTORY: path/to/folder");
+            System.exit(0);
+        }
+        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
